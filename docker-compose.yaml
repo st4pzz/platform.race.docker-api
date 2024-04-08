@@ -45,7 +45,7 @@ services:
 
   discovery:
     build:
-      context: ../platform.241.store.discovery/
+      context: ../platform.race.discovery/
       dockerfile: Dockerfile
     container_name: store-discovery
     image: store-discovery:latest
@@ -57,7 +57,7 @@ services:
 
   gateway:
     build:
-      context: ../platform.241.store.gateway/
+      context: ../platform.race.gateway/
       dockerfile: Dockerfile
     container_name: store-gateway
     image: store-gateway:latest
@@ -72,7 +72,7 @@ services:
 
   account:
     build:
-      context: ../platform.241.store.account-resource/
+      context: ../platform.race.account-resource/
       dockerfile: Dockerfile
     image: store-account:latest
     environment:
@@ -92,7 +92,7 @@ services:
 
   auth:
     build:
-      context: ../platform.241.store.auth-resource/
+      context: ../platform.race.auth-resource/
       dockerfile: Dockerfile
     image: store-auth:latest
     environment:
