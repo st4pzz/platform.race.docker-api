@@ -107,7 +107,7 @@ services:
       - account
   passenger:
     build:
-      context: ../platform.race.passenger-resource/
+      context: ../platform.race.passenger/
       dockerfile: Dockerfile
     image: store-passenger:latest
     environment:
