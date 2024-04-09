@@ -124,6 +124,25 @@ services:
     depends_on:
       - db-store
       - discovery
+  driver:
+    build:
+      context: ../platform.race.driver/
+      dockerfile: Dockerfile
+    image: store-driver:latest
+    environment:
+      - spring.datasource.url=jdbc:postgresql://store-db-store:5432/store
+      - spring.datasource.username=store
+      - spring.datasource.password=store
+      - eureka.client.service-url.defaultZone=http://store-discovery:8761/eureka/
+    deploy:
+      mode: replicated
+      replicas: 1
+    restart: always
+    networks:
+      - private-network
+    depends_on:
+      - db-store
+      - discovery
 
 
 networks:
