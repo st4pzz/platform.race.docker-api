@@ -89,26 +89,6 @@ services:
     depends_on:
       - db-store
       - discovery
-  jogador:
-    build:
-      context: ../platform.race.jogador-resource/
-      dockerfile: Dockerfile
-    image: store-jogador:latest
-    environment:
-      - spring.datasource.url=jdbc:postgresql://store-db-store:5432/store
-      - spring.datasource.username=store
-      - spring.datasource.password=store
-      - eureka.client.service-url.defaultZone=http://store-discovery:8761/eureka/
-    deploy:
-      mode: replicated
-      replicas: 1
-    restart: always
-    networks:
-      - private-network
-    depends_on:
-      - db-store
-      - discovery
-
   partida:
     build:
       context: ../platform.race.partida-resource/
@@ -130,6 +110,26 @@ services:
     depends_on:
       - db-store
       - discovery
+  jogador:
+    build:
+      context: ../platform.race.jogador-resource/
+      dockerfile: Dockerfile
+    image: store-jogador:latest
+    environment:
+      - spring.datasource.url=jdbc:postgresql://store-db-store:5432/store
+      - spring.datasource.username=store
+      - spring.datasource.password=store
+      - eureka.client.service-url.defaultZone=http://store-discovery:8761/eureka/
+    deploy:
+      mode: replicated
+      replicas: 1
+    restart: always
+    networks:
+      - private-network
+    depends_on:
+      - db-store
+      - discovery
+
 
   auth:
     build:
