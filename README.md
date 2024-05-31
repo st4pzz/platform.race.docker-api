@@ -18,22 +18,10 @@ A arquitetura do projeto utiliza uma abordagem de microserviços, onde cada comp
 ## Estrutura do Projeto
 
 ```
-platform.race.docker-api/
-├── src/
-│   ├── main/
-│   │   ├── java/
-│   │   │   └── com/
-│   │   │       └── example/
-│   │   │           └── dockerapi/
-│   │   │               ├── controller/
-│   │   │               ├── model/
-│   │   │               ├── repository/
-│   │   │               └── service/
-│   └── resources/
-├── Jenkinsfile
-├── docker-compose.yml
+docker-api/
+├── .gitignore
 ├── README.md
-└── pom.xml
+└── docker-compose.yaml
 ```
 
 ## Configuração e Execução
