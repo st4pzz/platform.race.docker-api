@@ -18,6 +18,21 @@ services:
     networks:
       - private-network
 
+  redis:
+    container_name: store-redis
+    image: redis:latest
+    ports:
+      - 6379:6379
+    environment:
+      - REDIS_HOST=store-redis
+      - REDIS_PORT=6379
+    volumes:
+      - $VOLUME/redis:/data
+    restart: always
+    networks:
+      - private-network
+
+
   prometheus:
     image: prom/prometheus:latest
     container_name: store-prometheus
